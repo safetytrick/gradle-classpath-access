@@ -1,0 +1,99 @@
+Initialized native services in: /home/michael.nielson/.gradle/native
+Initialized jansi services in: /home/michael.nielson/.gradle/native
+
+Welcome to Gradle 7.2!
+
+Here are the highlights of this release:
+ - Toolchain support for Scala
+ - More cache hits when Java source files have platform-specific line endings
+ - More resilient remote HTTP build cache behavior
+
+For more details see https://docs.gradle.org/7.2/release-notes.html
+
+Found daemon DaemonInfo{pid=1400654, address=[675d5795-8290-4b15-a413-cac73501559a port:33893, addresses:[/127.0.0.1]], state=Idle, lastBusy=1632856803896, context=DefaultDaemonContext[uid=2ed273ac-b545-49dd-ae9c-7f7db650dd78,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/michael.nielson/.gradle/daemon,pid=1400654,idleTimeout=10800000,priority=NORMAL,daemonOpts=-XX:MaxMetaspaceSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+Java home is different.
+Wanted: DefaultDaemonContext[uid=null,javaHome=/home/michael.nielson/.sdkman/candidates/java/11.0.8.hs-adpt,daemonRegistryDir=/home/michael.nielson/.gradle/daemon,pid=1436717,idleTimeout=null,priority=NORMAL,daemonOpts=--add-opens,java.base/java.util=ALL-UNNAMED,--add-opens,java.base/java.lang=ALL-UNNAMED,--add-opens,java.base/java.lang.invoke=ALL-UNNAMED,--add-opens,java.base/java.util=ALL-UNNAMED,--add-opens,java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens,java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens,java.base/java.nio.charset=ALL-UNNAMED,--add-opens,java.base/java.net=ALL-UNNAMED,--add-opens,java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+Actual: DefaultDaemonContext[uid=2ed273ac-b545-49dd-ae9c-7f7db650dd78,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/michael.nielson/.gradle/daemon,pid=1400654,idleTimeout=10800000,priority=NORMAL,daemonOpts=-XX:MaxMetaspaceSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+Removing 0 daemon stop events from registry
+Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
+Starting process 'Gradle build daemon'. Working directory: /home/michael.nielson/.gradle/daemon/7.2 Command: /home/michael.nielson/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.prefs/java.util.prefs=ALL-UNNAMED --add-opens java.prefs/java.util.prefs=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED -XX:MaxMetaspaceSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /home/michael.nielson/.gradle/wrapper/dists/gradle-7.2-bin/2dnblmf4td7x66yl1d74lt32g/gradle-7.2/lib/gradle-launcher-7.2.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 7.2
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 3.475 secs.
+The client will now receive all logging from the daemon (pid: 1436990). The daemon log file: /home/michael.nielson/.gradle/daemon/7.2/daemon-1436990.out.log
+Starting build in new daemon [memory: 512 MiB]
+Using 8 worker leases.
+Watching the file system is configured to be enabled if available
+Now considering [/src/mine/gradlebug] as hierarchies to watch
+File system watching is active
+Starting Build
+Settings evaluated using settings file '/src/mine/gradlebug/settings.gradle'.
+Projects loaded. Root project using build file '/src/mine/gradlebug/build.gradle'.
+Included projects: [root project 'gradlebug', project ':common']
+
+> Configure project :
+Evaluating root project 'gradlebug' using build file '/src/mine/gradlebug/build.gradle'.
+Applying dependency management to configuration 'bootArchives' in project 'gradlebug'
+Applying dependency management to configuration 'archives' in project 'gradlebug'
+Applying dependency management to configuration 'default' in project 'gradlebug'
+Applying dependency management to configuration 'implementation' in project 'gradlebug'
+Applying dependency management to configuration 'compileOnly' in project 'gradlebug'
+Applying dependency management to configuration 'compileClasspath' in project 'gradlebug'
+Applying dependency management to configuration 'annotationProcessor' in project 'gradlebug'
+Applying dependency management to configuration 'runtimeOnly' in project 'gradlebug'
+Applying dependency management to configuration 'runtimeClasspath' in project 'gradlebug'
+Applying dependency management to configuration 'testImplementation' in project 'gradlebug'
+Applying dependency management to configuration 'testCompileOnly' in project 'gradlebug'
+Applying dependency management to configuration 'testCompileClasspath' in project 'gradlebug'
+Applying dependency management to configuration 'testAnnotationProcessor' in project 'gradlebug'
+Applying dependency management to configuration 'testRuntimeOnly' in project 'gradlebug'
+Applying dependency management to configuration 'testRuntimeClasspath' in project 'gradlebug'
+Applying dependency management to configuration 'apiElements' in project 'gradlebug'
+Applying dependency management to configuration 'runtimeElements' in project 'gradlebug'
+Applying dependency management to configuration 'developmentOnly' in project 'gradlebug'
+Applying dependency management to configuration 'productionRuntimeClasspath' in project 'gradlebug'
+
+> Configure project :common
+Evaluating project ':common' using build file '/src/mine/gradlebug/common/build.gradle'.
+All projects evaluated.
+Selected primary task 'assemble' from project :
+Tasks to be executed: [task ':compileJava', task ':generateGitProperties', task ':processResources', task ':classes', task ':bootJarMainClassName', task ':bootJar', task ':jar', task ':assemble', task ':common:compileJava', task ':common:generateGitProperties', task ':common:processResources', task ':common:classes', task ':common:jar', task ':common:assemble']
+Tasks that were excluded: []
+:compileJava (Thread[Execution worker for ':',5,main]) started.
+
+> Task :compileJava
+Watching 1 directories to track changes
+Watching 1 directories to track changes
+Watching 1 directories to track changes
+Watching 1 directories to track changes
+Resolving global dependency management for project 'gradlebug'
+Excluding []
+Excluding []
+Watching 6 directories to track changes
+Caching disabled for task ':compileJava' because:
+  Build cache is disabled
+Task ':compileJava' is not up-to-date because:
+  No history is available.
+Watching 6 directories to track changes
+Watching 6 directories to track changes
+Watching 6 directories to track changes
+Watching 5 directories to track changes
+The input changes require a full rebuild for incremental task ':compileJava'.
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain '/home/michael.nielson/.sdkman/candidates/java/11.0.8.hs-adpt'.
+Compiling with JDK Java compiler API.
+Class dependency analysis for incremental compilation took 0.025 secs.
+Created classpath snapshot for incremental compilation in 1.302 secs.
+Watching 10 directories to track changes
+Watching 12 directories to track changes
+Watching 14 directories to track changes
+Watching 15 directories to track changes
+:compileJava (Thread[Execution worker for ':',5,main]) completed. Took 4.633 secs.
+:generateGitProperties (Thread[Execution worker for ':',5,main]) started.
+
+> Task :generateGitProperties FAILED
+Watching 16 directories to track changes
+:generateGitProperties (Thread[Execution worker for ':',5,main]) completed. Took 0.014 secs.
+2 actionable tasks: 2 executed
+Watching 16 directories to track changes
