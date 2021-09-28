@@ -5,20 +5,25 @@ set -o pipefail
 
 iteration=0
 
-while ./gradlew assemble --info --stacktrace | tee output.txt; do
-  echo "another success"
-  mv output.txt output.old.txt
-
-let iteration++
-
-cat << EOF > "common/src/main/resources/iter-${iteration}.properties"
-iteration=$iteration
+function doIteration() {
+  cat << EOF > "common/src/main/resources/iter-${1}.properties"
+iteration=$1
 EOF
 
-cat << EOF > "common/src/main/resources/current.properties"
-iteration=$iteration
+  cat << EOF > "common/src/main/resources/current.properties"
+iteration=$1
 EOF
 
+}
+
+doIteration 0
+
+while ./gradlew assemble -Piteration=$iteration --info --stacktrace | tee output.txt; do
+
+  let iteration=iteration+1
+  doIteration $iteration
 
 done
+
+
 

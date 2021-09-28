@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.5'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.5.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
     id "com.gorylenko.gradle-git-properties" version "2.3.1"
 }
 
@@ -10,16 +10,40 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 
-
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation project(':common')
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
+
+def accessJarForReasons = tasks.create('accessJarForReasons') {
+    doLast {
+
+
+        def urls = [];
+        for (File file : project.configurations.getByName('compileClasspath').resolve()) {
+            urls += file.toURI().toURL()
+        }
+        def classLoader = new URLClassLoader(urls.toArray(new URL[0]), (ClassLoader) null)
+        def currentProperties = new Properties()
+        currentProperties.load(classLoader.findResource("current.properties").openStream())
+
+        try {
+            // this demonstrates the classloader url caching behavior but isn't needed to replicate the bug
+            assert project.property("iteration") == currentProperties.get("iteration")
+        } catch (AssertionError e) {
+            println e
+        }
+    }
+}
+
+assemble.finalizedBy(accessJarForReasons)
